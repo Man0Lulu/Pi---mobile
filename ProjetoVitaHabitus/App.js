@@ -2,6 +2,7 @@ import Splash from './screens/Splash';
 import Login from './screens/Login';
 import { useState, useEffect } from 'react';
 import Home from './screens/Home';
+import MeuBotao from './components/Botao';
 
 const App = () => {
   const [exibeSplash, setExibeSplash] = useState(true);
