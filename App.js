@@ -1,7 +1,18 @@
+import { useState, useEffect } from 'react';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+
 import Splash from './screens/Splash';
 import Login from './screens/Login';
-import { useState, useEffect } from 'react';
 import Home from './screens/Home';
+
+const temaDoAplicativo = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgba(165, 102, 139, 0.9)',
+  },
+};
+
 
 const App = () => {
   const [exibeSplash, setExibeSplash] = useState(true);
@@ -20,12 +31,19 @@ const App = () => {
   }, []);
 
   return exibeSplash ? (
+
     <Splash />
   ) : logado ? (
-    <Home onLogout={handleLogout} />
+    <PaperProvider theme={temaDoAplicativo}>
+      <Home onLogout={handleLogout} />
+    </PaperProvider>
   ) : (
-    <Login onLogin={handleLogin} />
+    <PaperProvider theme={temaDoAplicativo}>
+      <Login onLogin={handleLogin} />
+    </PaperProvider>
   );
 };
+
+
 
 export default App;
