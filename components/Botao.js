@@ -1,11 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableHighlight, Text, StyleSheet } from 'react-native';
 
 const MeuBotao = ({ texto, onPress }) => {
   return (
-    <TouchableOpacity style={styles.botao} onPress={onPress}>
+    <TouchableHighlight style={styles.botao} onPress={onPress}>
       <Text style={styles.textoBotao}>{texto}</Text>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 
