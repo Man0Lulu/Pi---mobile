@@ -1,7 +1,9 @@
 import { useState } from 'react';
+
 import { withTheme } from 'react-native-paper';
+import { ContainerLogin, TextInputLogin, TextTitleLogin, ContainerInput, ContainerBotao, ContainerCadastrar, Logo, TextCadastrar, TextAindaNaoPossui } from '../styles/LoginStyles';
 import Botao from '../components/Botao';
-import { ContainerLogin, TextInputLogin, TextTitleLogin, LinhaHorizontalLogin, ContainerInput, ContainerBotao, ContainerCadastrar, Logo } from './LoginStyles';
+import LogoSVG from '../components/LogoSVG';
 
 const Login = (props) => {
   const { colors } = props.theme;
@@ -16,31 +18,34 @@ const Login = (props) => {
 
   return (
     <ContainerLogin primaryColor={colors.primary}>
-      <Logo source={require('../assets/snack-icon.png')}/>
-      <TextTitleLogin>Entrar</TextTitleLogin>
-      <LinhaHorizontalLogin/>
+      <Logo>
+        <LogoSVG width='250' height='160'/>
+      </Logo>
+      <TextTitleLogin>Entrar!</TextTitleLogin>
       <ContainerInput>
-      <TextInputLogin
-        label={'E-mail'}
-        keyboardType={'email-address'}
-        value={email}
-        onChangeText={(text) => setEmail(text)}
-        placeholder='E-mail'
-      />
-      <TextInputLogin
-        label={'senha'}
-        secureTextEntry={true}
-        value={senha}
-        onChangeText={(text) => setSenha(text)}
-        placeholder='Senha'
-      />
+        <TextInputLogin
+          label={'E-mail'}
+          keyboardType={'email-address'}
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          placeholder='E-mail'
+          placeholderTextColor="#808080"
+        />
+        <TextInputLogin
+          label={'senha'}
+          secureTextEntry={true}
+          value={senha}
+          onChangeText={(text) => setSenha(text)}
+          placeholder='Senha'
+          placeholderTextColor="#808080"
+        />
       </ContainerInput>
       <ContainerBotao>
-      <Botao onPress={handleEntrar} texto={"Acessar"} />
+        <Botao onPress={handleEntrar} texto={"Acessar"} />
       </ContainerBotao>
-      <LinhaHorizontalLogin/>
       <ContainerCadastrar>
-        <TextTitleLogin>Cadastre-se</TextTitleLogin>
+        <TextAindaNaoPossui>Não possui conta? <TextCadastrar>Cadastre-se</TextCadastrar></TextAindaNaoPossui>
+       
       </ContainerCadastrar>
     </ContainerLogin>
   );

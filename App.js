@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { useFonts } from 'expo-font';
 
-import Splash from './screens/Splash';
 import Login from './screens/Login';
 import Home from './screens/Home';
 
@@ -9,14 +9,18 @@ const temaDoAplicativo = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'rgba(165, 102, 139, 0.9)',
+    primary: '#F2E6E6',
   },
 };
 
-
 const App = () => {
-  const [exibeSplash, setExibeSplash] = useState(true);
   const [logado, setLogado] = useState(false);
+
+  const [fontsLoaded] = useFonts({
+    'Inter-Bold': require('./assets/fonts/Inter-Bold.ttf'),
+    'Inter-Medium': require('./assets/fonts/Inter-Medium.ttf'),
+    'Inter-SemiBold': require('./assets/fonts/Inter-SemiBold.ttf'),
+  });
 
   const handleLogin = () => {
     setLogado(true);
@@ -26,24 +30,15 @@ const App = () => {
     setLogado(false);
   };
 
-  useEffect(() => {
-    setTimeout(() => setExibeSplash(false), 3000);
-  }, []);
+  if (!fontsLoaded) {
+    return;
+  }
 
-  return exibeSplash ? (
-
-    <Splash />
-  ) : logado ? (
+  return (
     <PaperProvider theme={temaDoAplicativo}>
-      <Home onLogout={handleLogout} />
-    </PaperProvider>
-  ) : (
-    <PaperProvider theme={temaDoAplicativo}>
-      <Login onLogin={handleLogin} />
+      {logado ? <Home onLogout={handleLogout} /> : <Login onLogin={handleLogin} />}
     </PaperProvider>
   );
 };
-
-
 
 export default App;
