@@ -1,7 +1,7 @@
-import { SvgXml } from 'react-native-svg';
+//import { SvgXml } from 'react-native-svg';
 
-const LogoSVG = ({ width, height }) => {
-  const svgXml = `
+//const LogoSVG = ({ width, height }) => {
+//  const svgXml = `
   <svg width="192" height="119" viewBox="0 0 192 119" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0_4_2901)">
   <g clip-path="url(#clip1_4_2901)">
@@ -54,8 +54,8 @@ const LogoSVG = ({ width, height }) => {
   </defs>
   </svg>
   
-  `;
+//  `;
 
-  return <SvgXml xml={svgXml} width={width} height={height} />;
-};
-export default LogoSVG;
+ // return <SvgXml xml={svgXml} width={width} height={height} />;
+//};
+//export default LogoSVG;

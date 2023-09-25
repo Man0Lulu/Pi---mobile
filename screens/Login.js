@@ -4,6 +4,7 @@ import { withTheme } from 'react-native-paper';
 import { ContainerLogin, TextInputLogin, TextTitleLogin, ContainerInput, ContainerBotao, ContainerCadastrar, Logo, TextCadastrar, TextAindaNaoPossui } from '../styles/LoginStyles';
 import Botao from '../components/Botao';
 import LogoSVG from '../components/LogoSVG';
+import { Image } from 'react-native';
 
 const Login = (props) => {
   const { colors } = props.theme;
@@ -19,7 +20,8 @@ const Login = (props) => {
   return (
     <ContainerLogin primaryColor={colors.primary}>
       <Logo>
-        <LogoSVG width='250' height='160'/>
+        <Image  style={{width:250, height:180}}
+        source={require('../assets/logo-no-background.png')} />
       </Logo>
       <TextTitleLogin>Entrar!</TextTitleLogin>
       <ContainerInput>
@@ -45,7 +47,6 @@ const Login = (props) => {
       </ContainerBotao>
       <ContainerCadastrar>
         <TextAindaNaoPossui>Não possui conta? <TextCadastrar>Cadastre-se</TextCadastrar></TextAindaNaoPossui>
-       
       </ContainerCadastrar>
     </ContainerLogin>
   );

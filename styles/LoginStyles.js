@@ -1,7 +1,5 @@
 import styled from "styled-components/native";
 
-
-
 export const ContainerLogin = styled.View`
     flex: 1; 
     justifyContent: center; 
