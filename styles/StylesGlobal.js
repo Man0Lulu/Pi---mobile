@@ -6,9 +6,15 @@ export const ContainerApp = styled.View`
     background-color: #F2E6E6;
 `;
 
-const LinhaHorizontal = styled.View`
-  height: 1px;
+export const ContainerTelas = styled.View`
+  flex: 1;
+  justify-content: flex-start;
+  background-color: #F2E6E6;
+`;
+
+export const LinhaHorizontal = styled.View`
+  height: 3px;
   background-color: #B52178;
-  width: 90%;
-  margin: 3px 0px 18px;
+  width: 95%;
+  align-self: center;
 `;
