@@ -8,24 +8,24 @@ import Home from '../screens/Home';
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = ({ navigation }) => {
-  const { handleLogout } = useContext(UserContext);
+    const { handleLogout } = useContext(UserContext);
 
-  return (
-    <DrawerContentScrollView>
-      <DrawerItem label="Início" onPress={() => navigation.navigate('Home')} />
-      <DrawerItem label="Sair" onPress={() => {
-            handleLogout();
-            navigation.dispatch(DrawerActions.closeDrawer());
-          }}
-      />
-    </DrawerContentScrollView>
-  );
+    return (
+        <DrawerContentScrollView>
+            <DrawerItem label="Início" onPress={() => navigation.navigate('Home')} />
+            <DrawerItem label="Sair" onPress={() => {
+                handleLogout();
+                navigation.dispatch(DrawerActions.closeDrawer());
+            }}
+            />
+        </DrawerContentScrollView>
+    );
 };
 
 const AppRoute = () => (
-  <Drawer.Navigator initialRouteName="Home" drawerContent={props => <CustomDrawerContent {...props} />}>
-    <Drawer.Screen name="Home" component={Home} options={{ drawerLabel: 'Início', headerTitle: '', }} />
-  </Drawer.Navigator>
+    <Drawer.Navigator initialRouteName="Home" drawerContent={props => <CustomDrawerContent {...props} />}>
+        <Drawer.Screen name="Home" component={Home} options={{ drawerLabel: 'Início', headerTitle: '', }} />
+    </Drawer.Navigator>
 );
 
 export default AppRoute;
