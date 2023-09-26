@@ -11,7 +11,7 @@ const CustomDrawerContent = ({ navigation }) => {
   const { handleLogout } = useContext(UserContext);
 
   return (
-    <DrawerContentScrollView>
+    <DrawerContentScrollView style={{backgroundColor: '#F2E6E6'}}>
       <DrawerItem label="Início" onPress={() => navigation.navigate('Home')} />
       <DrawerItem
         label="Sair"
@@ -28,6 +28,7 @@ const AppRoute = () => (
   <Drawer.Navigator
     initialRouteName="Home"
     drawerContent={props => <CustomDrawerContent {...props} />}
+    
     screenOptions={{
       headerStyle: {
         backgroundColor: '#F2E6E6',
