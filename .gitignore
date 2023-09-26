@@ -1,0 +1,41 @@
+# Ignora arquivos de sistema e logs
+*.log
+*.pot
+*.potx
+*.swp
+.DS_Store
+.idea/
+.vscode/
+.expo/
+
+# Ignora arquivos de build e dependências
+node_modules/
+android/build/
+android/app/build/
+ios/Pods/
+ios/build/
+android/local.properties
+android/local-cli/
+android/*.iml
+ios/*.lock
+ios/Podfile.lock
+yarn-error.log
+
+# Ignora arquivos de chave
+*.sks
+*.key
+*.pem
+
+# Ignora arquivos de configuração específicos do desenvolvedor
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Ignora arquivos temporários
+build/
+
+# Ignora caches de ferramentas
+.gradle/
+node_modules/
+
+# Ignora os logs do Android
+android/logs/

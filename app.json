@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "VitaHabitus",
+    "slug": "snack-2d7f03f2-ee30-491a-975b-71cfbe6f4a15",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo-no-background.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logo-no-background.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F2E6E6"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo-no-background.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/logo-no-background.png"
+    }
+  }
+}
