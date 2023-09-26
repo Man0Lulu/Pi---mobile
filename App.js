@@ -1,20 +1,11 @@
-import { useState } from 'react';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { useFonts } from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
 
-import Login from './screens/Login';
-import Home from './screens/Home';
+import { UserContextProvider } from './contexts/UserContext';
+import Routes from './routes/Routes';
 
-const temaDoAplicativo = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#F2E6E6',
-  },
-};
 
 const App = () => {
-  const [logado, setLogado] = useState(false);
 
   const [fontsLoaded] = useFonts({
     'Inter-Bold': require('./assets/fonts/Inter-Bold.ttf'),
@@ -22,22 +13,16 @@ const App = () => {
     'Inter-SemiBold': require('./assets/fonts/Inter-SemiBold.ttf'),
   });
 
-  const handleLogin = () => {
-    setLogado(true);
-  };
-
-  const handleLogout = () => {
-    setLogado(false);
-  };
-
   if (!fontsLoaded) {
     return;
   }
 
   return (
-    <PaperProvider theme={temaDoAplicativo}>
-      {logado ? <Home onLogout={handleLogout} /> : <Login onLogin={handleLogin} />}
-    </PaperProvider>
+    <NavigationContainer>
+      <UserContextProvider>
+        <Routes />
+      </UserContextProvider>
+    </NavigationContainer>
   );
 };
 

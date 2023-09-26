@@ -1,12 +1,12 @@
 import React from 'react';
-import { BotaoPadrao, BotaoPadraoText } from './styles';
+import { BotaoPadrao, BotaoPadraoText } from './BotaoStyles';
 
 
-const MeuBotao = ({ texto, onPress }) => {
+const Botao = ({ texto, onPress }) => {
   return (
     <BotaoPadrao onPress={onPress}>
       <BotaoPadraoText>{texto}</BotaoPadraoText>
     </BotaoPadrao>
   );
 };
-export default MeuBotao;
+export default Botao;

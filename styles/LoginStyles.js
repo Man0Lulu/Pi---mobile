@@ -1,14 +1,7 @@
 import styled from "styled-components/native";
 
-export const ContainerLogin = styled.View`
-    flex: 1; 
-    justifyContent: center; 
-    align-items: center;
-    background-color: ${props => props.primaryColor};
-`;
-
 export const Logo = styled.View `
-    margin-top: -50px;
+    margin-top: -35px;
 `;
 
 export const ContainerInput = styled.View `
