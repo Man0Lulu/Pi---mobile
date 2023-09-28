@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { DrawerActions } from '@react-navigation/native';
-
 import UserContext from '../contexts/UserContext';
 import Home from '../screens/Home';
 

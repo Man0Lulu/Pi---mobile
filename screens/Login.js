@@ -1,5 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
 import { useContext, useState } from 'react';
-
 import { TextInputLogin, TextTitleLogin, ContainerInput, ContainerBotao, ContainerCadastrar, Logo, TextCadastrar, TextAindaNaoPossui } from '../styles/LoginStyles';
 import { ContainerApp } from '../styles/StylesGlobal';
 import { Image } from 'react-native';
@@ -16,6 +16,8 @@ const Login = () => {
   const handleEntrar = () => {
     handleLogin();
   };
+
+const navigation = useNavigation();
 
   return (
     <ContainerApp>
@@ -46,7 +48,7 @@ const Login = () => {
         <Botao onPress={handleEntrar} texto={"Acessar"} />
       </ContainerBotao>
       <ContainerCadastrar>
-        <TextAindaNaoPossui>Não possui conta? <TextCadastrar>Cadastre-se</TextCadastrar></TextAindaNaoPossui>
+        <TextAindaNaoPossui>Não possui conta? <TextCadastrar onPress={() => navigation.navigate('Cadastro')}>Cadastre-se</TextCadastrar></TextAindaNaoPossui>
       </ContainerCadastrar>
     </ContainerApp>
   );

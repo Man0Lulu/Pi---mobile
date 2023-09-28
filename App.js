@@ -1,6 +1,5 @@
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
-
 import { UserContextProvider } from './contexts/UserContext';
 import Routes from './routes/Routes';
 
