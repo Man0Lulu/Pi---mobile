@@ -15,10 +15,10 @@ const Cadastro = () => {
     const [nome, setNome] = useState();
     const [data, setData] = useState();
 
-    const { handleCadastro } = useContext(UserContext);
+    const { handleCadastrar } = useContext(UserContext);
 
-    const handleCadastrar = () => {
-        handleCadastro();
+    const handleCadastro = () => {
+        handleCadastrar();
     };
 
     const navigation = useNavigation();
@@ -96,7 +96,7 @@ const Cadastro = () => {
                 </ContainerCadastro>
             </ContainerInput>
             <ContainerBotao>
-                <Botao onPress={handleCadastrar} texto={"Cadastrar"} />
+                <Botao onPress={handleCadastro} texto={"Cadastrar"} />
             </ContainerBotao>
             <TextJaTemConta>Ja tem uma conta? <TextAcessar onPress={() => navigation.navigate('Login')}>Acessar</TextAcessar></TextJaTemConta>
         </ContainerApp>

@@ -17,12 +17,16 @@ export const UserContextProvider = ({children}) => {
     const handleLogout = () => {
         setCurrentUser({ userId: null, logado: false })
     }
+    const handleCadastrar = () => {
+        setCurrentUser({})
+    }
     
     const contexto = {
         userId: currentUser.userId,
         logado: currentUser.logado,
         handleLogin,
         handleLogout,
+        handleCadastrar,
     }
 
     return(
