@@ -8,7 +8,7 @@ const AutenticacaoRoute = () => (
     <Stack.Navigator>
             <Stack.Screen name="BoasVindas" component={BoasVindas} options={{ headerShown: false }} />
             <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
-            <Stack.Screen name="Cadastro" component={Cadastro} />
+            <Stack.Screen name="Cadastro" options={{ headerShown: false }} component={Cadastro} />
     </Stack.Navigator>
 );
 
