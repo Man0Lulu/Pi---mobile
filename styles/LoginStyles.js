@@ -1,7 +1,9 @@
 import styled from "styled-components/native";
 
 export const Logo = styled.View `
-    margin-top: -35px;
+    margin-top: 35%;
+    align-Items: center;
+    padding-bottom: 10px;
 `;
 
 export const ContainerInput = styled.View `
@@ -11,6 +13,7 @@ export const ContainerInput = styled.View `
 
 export const ContainerBotao = styled.View `
     margin-bottom: 50px;
+    align-Items: center;
 `;
 
 export const ContainerCadastrar = styled.View `

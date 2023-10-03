@@ -1,7 +1,8 @@
 import styled from "styled-components/native";
 
 export const Logo = styled.View`
-    margin-top: 5%;
+    margin-top: 20%;
+    align-Items: center;
 `;
 
 export const TextTitleCadastro = styled.Text `
@@ -43,6 +44,7 @@ export const ContainerInput = styled.View`
 
 export const ContainerBotao = styled.View`
     margin-bottom: 30px;
+    align-Items: center;
 `;
 
 export const TextJaTemConta = styled.Text`

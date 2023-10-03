@@ -5,6 +5,7 @@ import { ContainerApp } from '../styles/StylesGlobal';
 import { Image } from 'react-native';
 import Botao from '../components/Botao';
 import UserContext from '../contexts/UserContext';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const Login = () => {
 
@@ -21,6 +22,12 @@ const navigation = useNavigation();
 
   return (
     <ContainerApp>
+       <KeyboardAwareScrollView
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                scrollEnabled={true}
+                showsVerticalScrollIndicator={false}
+                extraHeight={100}
+                >
       <Logo>
         <Image  style={{width:250, height:180}}
         source={require('../assets/logo-no-background.png')} />
@@ -50,6 +57,7 @@ const navigation = useNavigation();
       <ContainerCadastrar>
         <TextAindaNaoPossui>Não possui conta? <TextCadastrar onPress={() => navigation.navigate('Cadastro')}>Cadastre-se</TextCadastrar></TextAindaNaoPossui>
       </ContainerCadastrar>
+      </KeyboardAwareScrollView>
     </ContainerApp>
   );
 };
