@@ -3,6 +3,7 @@ import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@rea
 import { DrawerActions } from '@react-navigation/native';
 import UserContext from '../contexts/UserContext';
 import Home from '../screens/Home';
+import Perfil from '../screens/Perfil';
 
 const Drawer = createDrawerNavigator();
 
@@ -10,8 +11,9 @@ const CustomDrawerContent = ({ navigation }) => {
   const { handleLogout } = useContext(UserContext);
 
   return (
-    <DrawerContentScrollView style={{backgroundColor: '#F2E6E6'}}>
+    <DrawerContentScrollView style={{ backgroundColor: '#F2E6E6' }}>
       <DrawerItem label="Início" onPress={() => navigation.navigate('Home')} />
+      <DrawerItem label="Perfil" onPress={() => navigation.navigate('Perfil')} />
       <DrawerItem
         label="Sair"
         onPress={() => {
@@ -27,7 +29,7 @@ const AppRoute = () => (
   <Drawer.Navigator
     initialRouteName="Home"
     drawerContent={props => <CustomDrawerContent {...props} />}
-    
+
     screenOptions={{
       headerStyle: {
         backgroundColor: '#F2E6E6',
@@ -40,8 +42,17 @@ const AppRoute = () => (
       component={Home}
       options={{
         drawerLabel: 'Início',
-        headerTitle: ' ', 
-        headerTitleAlign: 'center', 
+        headerTitle: ' ',
+        headerTitleAlign: 'center',
+      }}
+    />
+    <Drawer.Screen
+      name="Perfil"
+      component={Perfil}
+      options={{
+        drawerLabel: 'Perfil',
+        headerTitle: ' ',
+        headerTitleAlign: 'center',
       }}
     />
   </Drawer.Navigator>

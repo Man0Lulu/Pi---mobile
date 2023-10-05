@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BoasVindas from "../screens/BoasVindas";
 import Login from "../screens/Login";
 import Cadastro from "../screens/Cadastro"
+import Perfil from "../screens/Perfil";
 
 const Stack = createNativeStackNavigator();
 const AutenticacaoRoute = () => (
@@ -9,6 +10,7 @@ const AutenticacaoRoute = () => (
             <Stack.Screen name="BoasVindas" component={BoasVindas} options={{ headerShown: false }} />
             <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
             <Stack.Screen name="Cadastro" options={{ headerShown: false }} component={Cadastro} />
+            <Stack.Screen name="Perfil" options={{ headerShown: false }} component={Perfil} />
     </Stack.Navigator>
 );
 
