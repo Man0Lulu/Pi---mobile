@@ -3,6 +3,7 @@ import { ContainerApp, LinhaHorizontal, ContainerTelas } from "../styles/StylesG
 import { TextInputPerfil, ContainerPerfil, ContainerInput, ContainerBotao, TextEmail, TextTrocarSenha, TextTitulo } from "../styles/PerfilStyles"
 import { Image } from 'react-native';
 import Botao from "../components/Botao";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const Perfil = () => {
 
@@ -11,6 +12,12 @@ const Perfil = () => {
 
     return (
         <ContainerApp>
+              <KeyboardAwareScrollView
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                scrollEnabled={true}
+                showsVerticalScrollIndicator={false}
+                extraHeight={100}
+                >
             <LinhaHorizontal></LinhaHorizontal>
             <ContainerTelas>
 
@@ -54,6 +61,7 @@ const Perfil = () => {
                     <Botao texto={"Salvar"} />
                 </ContainerBotao>
             </ContainerTelas>
+            </KeyboardAwareScrollView>
         </ContainerApp>
     );
 };
