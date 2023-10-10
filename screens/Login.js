@@ -15,7 +15,7 @@ const Login = () => {
   const {handleLogin} = useContext(UserContext);
 
   const handleEntrar = () => {
-    handleLogin();
+    handleLogin(email,senha);
   };
 
 const navigation = useNavigation();

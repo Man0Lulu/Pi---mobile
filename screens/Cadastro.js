@@ -15,15 +15,17 @@ const Cadastro = () => {
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
     const [nome, setNome] = useState();
-    const [data, setData] = useState();
+    const [dataNascimento, setDataNascimento] = useState();
 
     const { handleCadastrar } = useContext(UserContext);
+    const navigation = useNavigation();
+
 
     const handleCadastro = () => {
-        handleCadastrar();
+        handleCadastrar(nome,email,dataNascimento,senha);
+        navigation.navigate('Login')
     };
 
-    const navigation = useNavigation();
 
     return (
         <ContainerApp>
@@ -81,8 +83,8 @@ const Cadastro = () => {
                         <TextInputCadastro
                             label={'Data-Nasc'}
                             keyboardType={'numeric'}
-                            value={data}
-                            onChangeText={(text) => setData(text)}
+                            value={dataNascimento}
+                            onChangeText={(text) => setDataNascimento(text)}
                             placeholder='Data de Nascimento'
                             placeholderTextColor="#808080"
                         />
