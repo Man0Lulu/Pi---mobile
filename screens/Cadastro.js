@@ -10,6 +10,7 @@ import Botao from '../components/Botao';
 import UserContext from '../contexts/UserContext';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
+
 const Cadastro = () => {
 
     const [email, setEmail] = useState();
@@ -82,7 +83,6 @@ const Cadastro = () => {
 
                         <TextInputCadastro
                             label={'Data-Nasc'}
-                            keyboardType={'numeric'}
                             value={dataNascimento}
                             onChangeText={(text) => setDataNascimento(text)}
                             placeholder='Data de Nascimento'
