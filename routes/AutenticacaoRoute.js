@@ -3,6 +3,7 @@ import BoasVindas from "../screens/BoasVindas";
 import Login from "../screens/Login";
 import Cadastro from "../screens/Cadastro"
 import Perfil from "../screens/Perfil";
+import CriarHabito from "../screens/CriarHabito";
 
 const Stack = createNativeStackNavigator();
 const AutenticacaoRoute = () => (
@@ -11,6 +12,7 @@ const AutenticacaoRoute = () => (
             <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
             <Stack.Screen name="Cadastro" options={{ headerShown: false }} component={Cadastro} />
             <Stack.Screen name="Perfil" options={{ headerShown: false }} component={Perfil} />
+            <Stack.Screen name="CriarHabito" options={{ headerShown: false }} component={CriarHabito} />
     </Stack.Navigator>
 );
 
