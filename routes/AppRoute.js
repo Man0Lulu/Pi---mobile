@@ -4,6 +4,7 @@ import { DrawerActions } from '@react-navigation/native';
 import UserContext from '../contexts/UserContext';
 import Home from '../screens/Home';
 import Perfil from '../screens/Perfil';
+import CriarHabito from '../screens/CriarHabito';
 
 const Drawer = createDrawerNavigator();
 
@@ -51,6 +52,15 @@ const AppRoute = () => (
       component={Perfil}
       options={{
         drawerLabel: 'Perfil',
+        headerTitle: ' ',
+        headerTitleAlign: 'center',
+      }}
+    />
+    <Drawer.Screen
+      name="CriarHabito"
+      component={CriarHabito}
+      options={{
+        drawerLabel: 'CriarHabito',
         headerTitle: ' ',
         headerTitleAlign: 'center',
       }}

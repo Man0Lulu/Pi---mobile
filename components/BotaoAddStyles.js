@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const BotaoPadrao = styled.TouchableHighlight `
+export const BotaoPadrao = styled.TouchableHighlight`
     width: 325px;
     height: 52px;
     border-radius: 20px;
@@ -9,8 +9,13 @@ export const BotaoPadrao = styled.TouchableHighlight `
     justify-content: center;
 `;
 
-export const BotaoPadraoText = styled.Text `
-  color: #FFF;
+export const BotaoPadraoText = styled.Text`
+    color: #FFF;
     font-size: 16px; 
     font-weight: bold;
+`;
+
+export const ContainerBotao = styled.View `
+    margin-bottom: 50px;
+    align-Items: center;
 `;
