@@ -83,8 +83,8 @@ const Cadastro = () => {
 
                         <TextInputCadastro
                             label={'Data-Nasc'}
-                            value={data}
-                            onChangeText={(text) => setData(text)}
+                            value={dataNascimento}
+                            onChangeText={(text) => setDataNascimento(text)}
                             placeholder='Data de Nascimento'
                             placeholderTextColor="#808080"
                         />

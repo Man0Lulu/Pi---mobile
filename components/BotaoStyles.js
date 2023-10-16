@@ -13,4 +13,5 @@ export const BotaoPadraoText = styled.Text `
   color: #FFF;
     font-size: 16px; 
     font-weight: bold;
+    font-family: Inter-SemiBold;
 `;

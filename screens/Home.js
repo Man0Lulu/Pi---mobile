@@ -12,11 +12,9 @@ const Home = () => {
   return (
     <ContainerTelas>
       <LinhaHorizontal />
-
       <ContainerHome>
         <Image style={{ width: 250, height: 250 }} source={require('../assets/homesemhabito.png')} />
       </ContainerHome>
-
       <ContainerBotao>
         <TouchableOpacity onPress={() => navigation.navigate('CriarHabito')}>
         <Image style={{ tintColor: '#B52178' }} source={require('../assets/botaoadd.png')} />

@@ -9,7 +9,7 @@ import { criarUsuario, autenticaUsuario } from "../services/AuthService";
 })
 
 export const UserContextProvider = ({children}) => {
-    const [currentUser, setCurrentUser] = useState({ userId: null, logado: false })
+    const [currentUser, setCurrentUser] = useState({ userId: null, logado: true })
     
     const handleLogin = async (email,senha) => {
         const data = {
@@ -29,6 +29,7 @@ export const UserContextProvider = ({children}) => {
 
     const handleLogout = () => {
         setCurrentUser({ userId: null, logado: false })
+        console.log(currentUser)
     }
     const handleCadastrar = (nome,email,dataNascimento,senha) => {
         const data = {
@@ -41,6 +42,7 @@ export const UserContextProvider = ({children}) => {
     }
     
     const contexto = {
+        usuario: currentUser,
         userId: currentUser.userId,
         logado: currentUser.logado,
         handleLogin,

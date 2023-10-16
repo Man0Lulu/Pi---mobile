@@ -11,18 +11,15 @@ const Perfil = () => {
     const [senha, setSenha] = useState();
 
     return (
-        <ContainerApp>
+        <ContainerTelas>
               <KeyboardAwareScrollView
                 resetScrollToCoords={{ x: 0, y: 0 }}
                 scrollEnabled={true}
                 showsVerticalScrollIndicator={false}
                 extraHeight={100}
                 >
-            <LinhaHorizontal></LinhaHorizontal>
-            <ContainerTelas>
-
+            <LinhaHorizontal/>
                 <TextTitulo>Perfil</TextTitulo>
-
                 <ContainerPerfil>
                     <Image style={{ width: 100, height: 100, tintColor: '#B52178' }}
                         source={require('../assets/icone-usuario.png')} />
@@ -60,9 +57,8 @@ const Perfil = () => {
                 <ContainerBotao>
                     <Botao texto={"Salvar"} />
                 </ContainerBotao>
-            </ContainerTelas>
             </KeyboardAwareScrollView>
-        </ContainerApp>
+        </ContainerTelas>
     );
 };
 
