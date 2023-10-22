@@ -24,7 +24,6 @@ const CriarHabito = () => {
 
     const handleCriarHabitoBotao = () => {
         handleCriarHabito(habito, tocarAlarme, horarioalarme, datahabito, selectedImage);
-        console.log(selectedImage);
     };
     const handleImagePicker = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({

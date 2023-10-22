@@ -9,8 +9,8 @@ const HabitoContext = createContext( {
 export const HabitoContextProvider = ({children}) => {
     const { usuario } = useContext(UserContext);
 
-    const handleCriarHabito = (nome,alarme,horario,data) => {
-        console.log("Chegou. ", nome,alarme,horario,data);
+    const handleCriarHabito = (nome,alarme,horario,data, selectedImage) => {
+        console.log("Chegou. ", nome,alarme,horario,data, selectedImage);
         console.log(usuario);
         
     }
