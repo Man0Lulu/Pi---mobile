@@ -51,14 +51,18 @@ export const UserContextProvider = ({children}) => {
         alterarImagemPerfil(data)
     }
 
-    const handleTrocarSenha = (senhaAtual, novaSenha) => {
+    const handleTrocarSenha = async (senhaAtual, novaSenha) => {
         const data = {
             id: currentUser.userId,
             senhaAtual,
             novaSenha
         }
-        TrocarSenha(data)
-        handleLogout()
+        const response = await TrocarSenha(data)
+        if(response) {
+            handleLogout()
+        } else {
+            console.error("Senha inválida")
+        }
     }
     
     const contexto = {

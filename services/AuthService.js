@@ -32,7 +32,9 @@ export async function TrocarSenha (dados) {
     try {
         const response = await axios.put('http://3.90.51.196:8080/users', dados);
         console.log('resposta: ', response.data);
+        return true
     } catch (error) {
+        return false
         console.error('Erro na requisição de salvar imagem', error);
     }
 }
