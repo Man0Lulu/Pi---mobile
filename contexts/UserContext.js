@@ -10,7 +10,7 @@ import { criarUsuario, autenticaUsuario, alterarImagemPerfil, TrocarSenha } from
 })
 
 export const UserContextProvider = ({children}) => {
-    const [currentUser, setCurrentUser] = useState({ userId: null, email:null, nome: null, dataNascimento: null, logado: false })
+    const [currentUser, setCurrentUser] = useState({ userId: null, email:null, nome: null, dataNascimento: null, logado: true })
     const [fotoPerfil, setFotoPerfil] = useState(null);
     
     const handleLogin = async (email,senha) => {

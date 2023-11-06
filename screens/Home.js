@@ -1,6 +1,11 @@
+import { FlatList, View, StyleSheet, Text } from 'react-native';
+
 import { ContainerTelas, LinhaHorizontal } from '../styles/StylesGlobal';
-import { FlatList, Image, TouchableOpacity, View, StyleSheet, Text } from 'react-native';
 import moment from 'moment';
+import BotaoAdd from '../svg/BotaoAdd';
+import { ContainerBotao, LinhaHorizontalHomeDireita } from '../styles/HomeStyles';
+import { LinhaHorizontalHomeEsquerda } from '../styles/HomeStyles';
+LinhaHorizontalHomeDireita
 
 
 
@@ -45,13 +50,18 @@ const Home = () => {
         )}
       />
     </View>
+
+<LinhaHorizontalHomeEsquerda/>
+    <ContainerBotao>
+    <BotaoAdd />
+    </ContainerBotao>
+    <LinhaHorizontalHomeDireita/>
     </ContainerTelas>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -61,15 +71,16 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     borderRadius: 40,
     height: 50,
-    marginTop:20,
+    marginTop: 20,
   },
   dayCard2: {
     padding: 10,
     borderRadius: 40,
     height: 50,
     marginRight: 4,
-    paddingLeft:13,
-    paddingRight:13,
+    marginTop: -13,
+    paddingLeft: 13,
+    paddingRight: 13,
   },
   dayText: {
     fontSize: 14,
@@ -78,16 +89,15 @@ const styles = StyleSheet.create({
   },
   dayText2: {
     fontSize: 14,
-    color: 'red',
-    fontFamily: 'Inter-SemiBold'
+    color: '#B52178',
+    fontFamily: 'Inter-SemiBold',
   },
   container2: {
-    flex: 1,
+    flex:0,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 520,
-    marginLeft:4,
-    paddingBottom: 35,
+    marginLeft: 4,
+    paddingBottom: 10,
   },
 });
 
