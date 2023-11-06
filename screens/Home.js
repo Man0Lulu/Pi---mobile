@@ -1,11 +1,10 @@
-import { FlatList, View, StyleSheet, Text } from 'react-native';
+import { FlatList, View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
 import { ContainerTelas, LinhaHorizontal } from '../styles/StylesGlobal';
 import moment from 'moment';
 import BotaoAdd from '../svg/BotaoAdd';
 import { ContainerBotao, LinhaHorizontalHomeDireita } from '../styles/HomeStyles';
 import { LinhaHorizontalHomeEsquerda } from '../styles/HomeStyles';
-LinhaHorizontalHomeDireita
 
 
 
@@ -19,43 +18,50 @@ for (let i = 0; i < 7; i++) {
 }
 
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
   return (
     <ContainerTelas>
-     <LinhaHorizontal />
-     <View style={styles.container}>
-      <FlatList
-        showsHorizontalScrollIndicator={false}
-        horizontal
-        data={daysOfWeek}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.dayCard}>
-            <Text style={styles.dayText}>{item}</Text>
-          </View>
-        )}
-      />
-    </View>
-    <View style={styles.container2}>
-      <FlatList
-        showsHorizontalScrollIndicator={false}
-        horizontal
-        data={days}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.dayCard2}>
-            <Text style={styles.dayText2}>{item}</Text>
-          </View>
-        )}
-      />
-    </View>
+      <LinhaHorizontal />
+      <View style={styles.container}>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          data={daysOfWeek}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.dayCard}>
+              <Text style={styles.dayText}>{item}</Text>
+            </View>
+          )}
+        />
+      </View>
+      <View style={styles.container2}>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          data={days}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.dayCard2}>
+              <Text style={styles.dayText2}>{item}</Text>
+            </View>
+          )}
+        />
+      </View>
 
-<LinhaHorizontalHomeEsquerda/>
-    <ContainerBotao>
-    <BotaoAdd />
-    </ContainerBotao>
-    <LinhaHorizontalHomeDireita/>
+      <View>
+        <Image style={{ width: 250, height: 250, marginTop: 70, alignSelf:'center' }} source={require('../assets/homesemhabito.png')} />
+      </View>
+
+
+      <LinhaHorizontalHomeEsquerda />
+      <ContainerBotao>
+        <TouchableOpacity onPress={() => navigation.navigate('CriarHabito')}>
+          <BotaoAdd />
+        </TouchableOpacity>
+      </ContainerBotao>
+      <LinhaHorizontalHomeDireita />
     </ContainerTelas>
   );
 }
@@ -93,7 +99,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-SemiBold',
   },
   container2: {
-    flex:0,
+    flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 4,

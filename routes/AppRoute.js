@@ -7,6 +7,7 @@ import Perfil from '../screens/Perfil';
 import { View,TouchableOpacity, Image } from 'react-native';
 import MenuSVG from '../svg/MenuSVG';
 import CriarHabito from '../screens/CriarHabito';
+import IconeUsuario from '../svg/IconeUsuario';
 
 const Drawer = createDrawerNavigator();
 
@@ -50,7 +51,10 @@ const CustomDrawerHeader = ({ navigation }) => {
         {imagem ? (
           <Image style={{width: 58, height: 58, borderRadius: 40, marginRight: 16, borderWidth:1.5, borderColor: 'rgba(181, 33, 120, 0.7)'}} source={{ uri: 'data:image/jpeg;base64,' + foto }} />
           ) : ( 
-          <Image source={require('../assets/icone-usuario.png')} style={{ width: 50, height: 50, borderRadius: 25, marginRight: 16, borderWidth:1.5, borderColor: 'rgba(181, 33, 120, 0.7)'}} />
+            <View style={{  marginRight: 16, }}>
+              <IconeUsuario/>
+          </View>
+          
           )}
       </TouchableOpacity>
     </View>
