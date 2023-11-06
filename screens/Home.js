@@ -1,24 +1,34 @@
-import { FlatList, View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import { FlatList, View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
+import { useState } from 'react';
 
-import { ContainerTelas, LinhaHorizontal } from '../styles/StylesGlobal';
 import moment from 'moment';
+
 import BotaoAdd from '../svg/BotaoAdd';
 import { ContainerBotao, LinhaHorizontalHomeDireita } from '../styles/HomeStyles';
 import { LinhaHorizontalHomeEsquerda } from '../styles/HomeStyles';
+import { ContainerTelas, LinhaHorizontal } from '../styles/StylesGlobal';
+
 
 
 
 const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Quar', 'Quin', 'Sex', 'Sáb'];
-const days = [];
-const currentDate = moment();
-
-for (let i = 0; i < 7; i++) {
-  const day = currentDate.clone().day(i);
-  days.push(`${day.format('DD')}`)
-}
-
 
 const Home = ({ navigation }) => {
+  const todayIndex = moment().day(); // Obtém o índice do dia da semana atual (0 para domingo, 1 para segunda, etc.)
+
+  const [selectedDay, setSelectedDay] = useState(todayIndex);
+
+  const handleDayPress = (index) => {
+    setSelectedDay(index);
+  };
+
+  const days = [];
+  const currentDate = moment();
+
+  for (let i = 0; i < 7; i++) {
+    const day = currentDate.clone().day(i);
+    days.push(day.format('DD'));
+  }
 
   return (
     <ContainerTelas>
@@ -33,8 +43,7 @@ const Home = ({ navigation }) => {
             <View style={styles.dayCard}>
               <Text style={styles.dayText}>{item}</Text>
             </View>
-          )}
-        />
+          )}/>
       </View>
       <View style={styles.container2}>
         <FlatList
@@ -42,18 +51,23 @@ const Home = ({ navigation }) => {
           horizontal
           data={days}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <View style={styles.dayCard2}>
-              <Text style={styles.dayText2}>{item}</Text>
-            </View>
+          renderItem={({ item, index }) => (
+            <TouchableOpacity
+              onPress={() => handleDayPress(index)}
+              style={[
+                styles.dayCard2,
+                selectedDay === index ? styles.selectedDayCard : null
+              ]}
+            >
+              <Text style={[styles.dayText2, selectedDay === index ? styles.selectedDayText : null]}>{item}</Text>
+            </TouchableOpacity>
           )}
         />
       </View>
 
       <View>
-        <Image style={{ width: 250, height: 250, marginTop: 70, alignSelf:'center' }} source={require('../assets/homesemhabito.png')} />
+        <Image style={{ width: 250, height: 250, marginTop: 90, alignSelf: 'center' }} source={require('../assets/homesemhabito.png')} />
       </View>
-
 
       <LinhaHorizontalHomeEsquerda />
       <ContainerBotao>
@@ -76,17 +90,19 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingLeft: 10,
     borderRadius: 40,
-    height: 50,
-    marginTop: 20,
+    height: 30,
+    marginTop: 10, 
+    marginBottom: 7,
   },
   dayCard2: {
-    padding: 10,
     borderRadius: 40,
-    height: 50,
     marginRight: 4,
-    marginTop: -13,
+    marginTop: 0,
     paddingLeft: 13,
     paddingRight: 13,
+    paddingTop: 10,
+    paddingBottom:10,
+    
   },
   dayText: {
     fontSize: 14,
@@ -104,6 +120,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 4,
     paddingBottom: 10,
+  },
+  selectedDayCard: {
+    backgroundColor: '#B52178',
+    borderWidth: 1,
+    borderColor: '#B52178',
+    height:42,
+    width: 43,
+  },
+  selectedDayText: {
+    color: '#FFF',
+    fontFamily: 'Inter-SemiBold',
+    width:40,
   },
 });
 
