@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
-import { criarUsuario, autenticaUsuario, alterarImagemPerfil, TrocarSenha } from "../services/AuthService";
+import { criarUsuario, autenticaUsuario, deletarUsuario } from "../services/AuthService";
+import { alterarImagemPerfil, TrocarSenha } from "../services/UsuarioService";
 
  const UserContext = createContext( {
     userId: null,
@@ -51,6 +52,13 @@ export const UserContextProvider = ({children}) => {
         alterarImagemPerfil(data)
     }
 
+    const handleDeletarUsuario = async (id) => {
+       const response = await deletarUsuario(id);
+        if (response) {
+            handleLogout();
+        }
+    }
+
     const handleTrocarSenha = async (senhaAtual, novaSenha) => {
         const data = {
             id: currentUser.userId,
@@ -75,6 +83,7 @@ export const UserContextProvider = ({children}) => {
         handleCadastrar,
         handleAlterarFoto,
         handleTrocarSenha,
+        handleDeletarUsuario,
     }
 
     return(
