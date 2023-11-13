@@ -8,6 +8,7 @@ import { View,TouchableOpacity, Image } from 'react-native';
 import MenuSVG from '../svg/MenuSVG';
 import CriarHabito from '../screens/CriarHabito';
 import IconeUsuario from '../svg/IconeUsuario';
+import AlterarHabito from '../screens/AlterarHabito'
 
 const Drawer = createDrawerNavigator();
 
@@ -19,6 +20,7 @@ const CustomDrawerContent = ({ navigation }) => {
   return (
     <DrawerContentScrollView style={{ backgroundColor: '#F2E6E6' }}>
       <DrawerItem label="Início" onPress={() => navigation.navigate('Home')} />
+      <DrawerItem label="Meus Hábitos" onPress={() => navigation.navigate('AlterarHabito')} />
       <DrawerItem label="Perfil" onPress={() => navigation.navigate('Perfil')} />
       <DrawerItem
         label="Sair"
@@ -97,6 +99,15 @@ const AppRoute = () => (
       component={CriarHabito}
       options={{
         drawerLabel: 'CriarHabito',
+        headerTitle: ' ',
+        headerTitleAlign: 'center',
+      }}
+    />
+    <Drawer.Screen
+      name="AlterarHabito"
+      component={AlterarHabito}
+      options={{
+        drawerLabel: 'AlterarHabito',
         headerTitle: ' ',
         headerTitleAlign: 'center',
       }}
