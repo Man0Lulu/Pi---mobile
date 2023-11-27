@@ -1,31 +1,47 @@
-import { createContext, useContext } from "react";
-import UserContext from "./UserContext";
+import { createContext, useState } from "react";
+import { criarHabito, listarHabitos } from "../services/HabitoService";
 
-const HabitoContext = createContext( {
-    userId: null,
+const HabitoContext = createContext({
     handleCriarHabito: () => { },
+    handleListarHabitos: () => { },
 })
 
-export const HabitoContextProvider = ({children}) => {
-    const { usuario } = useContext(UserContext);
+export const HabitoContextProvider = ({ children }) => {
+    const [habitos, setHabitos] = useState([]);
 
-    const handleCriarHabito = (nome,alarme,horario,data, selectedImage) => {
-        console.log("Chegou. ", nome,alarme,horario,data, selectedImage);
-        console.log(usuario);
-        
+    const handleListarHabitos = async (id) => {
+        response = await listarHabitos(id);
+        if (response) {
+            setHabitos(response.habitos);
+        }
+    }
+
+    const handleCriarHabito = async (id,nome, alarme, horario, data, selectedImage) => {
+        const dados = {
+            usuarioId: id,
+            nome: nome,
+            dataInicio: data,
+            horarioAlarme: horario,
+            tocarAlarme: alarme,
+            imagem: selectedImage
+        }
+
+        response = await criarHabito(dados)
     }
 
 
     const contexto = {
         handleCriarHabito,
+        habitos,
+        handleListarHabitos,
     }
 
-    return(
+    return (
         <HabitoContext.Provider value={contexto}>
             {children}
         </HabitoContext.Provider>
     )
 
-}   
+}
 
 export default HabitoContext;

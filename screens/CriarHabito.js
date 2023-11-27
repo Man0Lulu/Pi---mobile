@@ -8,6 +8,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import HabitoContext from '../contexts/HabitoContext';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
+import { useNavigation } from '@react-navigation/native';
+import UserContext from '../contexts/UserContext';
 
 
 const CriarHabito = () => {
@@ -17,13 +19,19 @@ const CriarHabito = () => {
     const [tocarAlarme, setTocarAlarme] = useState(false);
     const { handleCriarHabito } = useContext(HabitoContext);
     const [selectedImage, setSelectedImage] = useState(null);
+    const navigation = useNavigation();
+    const { usuario } = useContext(UserContext);
 
     const handleSwitchChange = (novoValor) => {
         setTocarAlarme(novoValor);
     };
 
-    const handleCriarHabitoBotao = () => {
-        handleCriarHabito(habito, tocarAlarme, horarioalarme, datahabito, selectedImage);
+    const handleCriarHabitoBotao = async () => {
+        await handleCriarHabito(usuario.userId, habito, tocarAlarme, horarioalarme, datahabito, selectedImage);
+        navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }],
+          });
     };
     const handleImagePicker = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({

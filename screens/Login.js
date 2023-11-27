@@ -16,6 +16,7 @@ const Login = () => {
 
   const handleEntrar = () => {
     handleLogin(email,senha);
+    
   };
 
 const navigation = useNavigation();
