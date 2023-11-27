@@ -23,7 +23,7 @@ import * as ImagePicker from 'expo-image-picker';
 import SearchBar from '../components/SearchBar';
 
 const AlterarHabito = () => {
-  const { control, handleSubmit, setError, formState: { errors } } = useForm();
+  const { control, formState: { errors } } = useForm();
   const [habito, setNomeHabito] = useState('');
   const [horarioalarme, setHorarioAlarme] = useState('');
   const [datahabito, setDataHabito] = useState('');
@@ -35,9 +35,9 @@ const AlterarHabito = () => {
     setTocarAlarme(novoValor);
   };
 
-  const handleAlterarHabitoBotao = () => {
+ /*  const handleAlterarHabitoBotao = () => {
     handleAlterarHabito(habito, tocarAlarme, horarioalarme, datahabito, selectedImage);
-  };
+  }; */
 
   const handleImagePicker = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -149,7 +149,7 @@ const AlterarHabito = () => {
           {errors.datahabito && <Text style={{ color: 'red' }}>{errors.datahabito.message}</Text>}
         </ContainerHabito>
         <ContainerBotao>
-          <Botao onPress={handleAlterarHabitoBotao(onSubmit)} texto={"Salvar"} />
+          <Botao onPress={onSubmit} texto={"Salvar"} />
         </ContainerBotao>
       </KeyboardAwareScrollView>
     </ContainerTelas>

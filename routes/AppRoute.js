@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { DrawerActions } from '@react-navigation/native';
 import UserContext from '../contexts/UserContext';
-import { View, TouchableOpacity, Image } from 'react-native';
 
 import Home from '../screens/Home';
 import Perfil from '../screens/Perfil';

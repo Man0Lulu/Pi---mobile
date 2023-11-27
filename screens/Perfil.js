@@ -21,9 +21,11 @@ import Botao from '../components/Botao';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import UserContext from '../contexts/UserContext';
 import * as ImagePicker from 'expo-image-picker';
+import { useContext, useState, useEffect } from 'react';
+import { Text } from 'react-native';
 
 const Perfil = () => {
-  const { control, handleSubmit, setError, formState: { errors } } = useForm();
+  const { control, handleSubmit, formState: { errors } } = useForm();
   const { usuario, handleAlterarFoto, foto, handleTrocarSenha, handleDeletarUsuario } = useContext(UserContext);
   const [selectedImage, setSelectedImage] = useState(null);
 

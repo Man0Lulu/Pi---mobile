@@ -20,11 +20,12 @@ import Botao from '../components/Botao';
 import BotaoAlarme from '../components/Switch';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import HabitoContext from '../contexts/HabitoContext';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Pressable } from 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
 
 const CriarHabito = () => {
-  const { control, handleSubmit, setError, formState: { errors } } = useForm();
+
+  const { control, formState: { errors } } = useForm();
   const [habito, setNomeHabito] = useState('');
   const [horarioalarme, setHorarioAlarme] = useState('');
   const [datahabito, setDataHabito] = useState('');
@@ -36,9 +37,9 @@ const CriarHabito = () => {
     setTocarAlarme(novoValor);
   };
 
-  const handleCriarHabitoBotao = () => {
+ /*  const handleCriarHabitoBotao = () => {
     handleCriarHabito(habito, tocarAlarme, horarioalarme, datahabito, selectedImage);
-  };
+  }; */
 
   const handleImagePicker = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -67,7 +68,7 @@ const CriarHabito = () => {
         <LinhaHorizontal />
         <TextTitulo>Novo Hábito</TextTitulo>
         <TextImagemHabito>Imagem do Hábito</TextImagemHabito>
-        <TouchableOpacity onPress={() => handleImagePicker()}>
+        <Pressable onPress={() => handleImagePicker()}>
           {selectedImage ? (
             <Image style={{ marginLeft: 30, marginTop: 8, width: 120, height: 120, borderRadius: 20, overflow: 'hidden' }} source={{ uri: 'data:image/jpeg;base64,' + selectedImage }} />
           ) : (
@@ -78,7 +79,7 @@ const CriarHabito = () => {
               <ContainerDefaultHabitoImage />
             </>
           )}
-        </TouchableOpacity>
+        </Pressable>
         <ContainerAlarme>
           <TextTocarHabito>Tocar Alarme?</TextTocarHabito>
           <BotaoAlarme value={tocarAlarme} onValueChange={handleSwitchChange} />
@@ -148,7 +149,7 @@ const CriarHabito = () => {
           {errors.datahabito && <Text style={{ color: 'red' }}>{errors.datahabito.message}</Text>}
         </ContainerHabito>
         <ContainerBotao>
-          <Botao onPress={handleSubmit(onSubmit)} texto={"Criar"} />
+          <Botao onPress={onSubmit} texto={"Criar"} />
         </ContainerBotao>
       </KeyboardAwareScrollView>
     </ContainerTelas>
