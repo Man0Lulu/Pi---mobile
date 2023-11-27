@@ -8,55 +8,70 @@ export const ContainerCriarHabito = styled.View `
 
 export const TextTitulo = styled.Text`
     color: #B52178;
-    font-size: 30px;
-    font-family: Inter-SemiBold;
+    font-size: 25px;
+    font-family: Inter-Black;
     align-self: center;
-    margin-top: 20px;
+    margin-top: 15px;
 `;
 
 export const TextTocarHabito = styled.Text`
     color: #808191;
-    font-size: 20px;
+    font-size: 16px;
     font-family: Inter-SemiBold;
-    margin-left: 16px;
-    margin-top: 20px
+    margin-left: 30px;
+    margin-top: 15px;
 `;
 
 export const TextImagemHabito = styled.Text`
     color: #B52178;
-    font-size: 20px;
-    font-family: Inter-SemiBold;
+    font-size: 15px;
+    font-family: Inter-Black;
     margin-left: 16px;
-    margin-top: 20px
-`;
-
-export const TextAlarme = styled.Text`
-    color: #B52178;
-    font-size: 20px;
-    font-family: Inter-SemiBold;
-    margin-left: 16px;
-    margin-top: 20px
+    margin-top: 20px;
+    margin-right: 35px;
+    margin-left: 35px;
+    margin-bottom: 3px;
 `;
 
 export const ContainerHabito = styled.View`
     flex-direction: columm;
     align-Items: left;
     position: relative;
+    margin-top: -20px;
 `;
 
 export const TextInputHabito = styled.TextInput` 
     height: 51px;
-    margin: 1px 14px 1px;
-    padding: 0px 0px 0px 20px;
+    margin: 1px 30px 1px;
+    padding: 0px 0px 0px 30px;
     background-color: #FFFF;
     border-radius: 20px;
     align-self: stretch;   
+    font-family: Inter-Medium;
+    font-size: 16px;
+
+`;
+
+export const ContainerPosicaoDefaultImagem = styled.View `
+    position: absolute;
+    margin-left: 70px;
+    padding-top: 38px;
+    
+`;
+export const ContainerDefaultHabitoImage = styled.View`
+    height: 100px;
+    width: 120px;
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+    background: #B52178;
+    opacity: 0.4;
 `;
 
 export const ContainerBotao = styled.View`
     margin-bottom: 50px;
     align-Items: center;
-    margin: 25px 14px 1px;
+    margin: 25px 14px 20px;
 `;
 
 export const ContainerAlarme = styled.View`
@@ -64,4 +79,5 @@ export const ContainerAlarme = styled.View`
     flex-direction: row;
     justify-content: space-between;
     margin-right: 16px;
+    margin-top: 8px;
 `;
