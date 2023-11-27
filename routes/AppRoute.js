@@ -21,7 +21,7 @@ const CustomDrawerContent = ({ navigation }) => {
   return (
     <DrawerContentScrollView style={{ backgroundColor: '#F2E6E6' }}>
       <DrawerItem label="Início" onPress={() => navigation.navigate('Home')} />
-      <DrawerItem label="Meus Hábitos" onPress={() => navigation.navigate('AlterarHabito')} />
+      <DrawerItem label="Alterar Hábitos" onPress={() => navigation.navigate('AlterarHabito')} />
       <DrawerItem label="Perfil" onPress={() => navigation.navigate('Perfil')} />
       <DrawerItem
         label="Sair"

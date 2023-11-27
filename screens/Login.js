@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, Text } from '@react-navigation/native';
 import { useContext } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { TextInputLogin, TextTitleLogin, ContainerInput, ContainerBotao, ContainerCadastrar, Logo, TextCadastrar, TextAindaNaoPossui } from '../styles/LoginStyles';
@@ -15,7 +15,6 @@ const Login = () => {
 
   const onSubmit = (data) => {
     handleLogin(data.email, data.senha);
-
   };
 
   return (

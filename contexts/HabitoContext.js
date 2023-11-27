@@ -31,9 +31,7 @@ export const HabitoContextProvider = ({ children }) => {
     }
 
     const handleAlterarHabito = (habitoId, nome, alarme, horario, data, selectedImage) => {
-        console.log("Alterar hábito. ", habitoId, nome, alarme, horario, data, selectedImage);
     };
-
 
     const contexto = {
         handleCriarHabito,
