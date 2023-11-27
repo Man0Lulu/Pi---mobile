@@ -1,7 +1,8 @@
-import { createContext, useContext, useState } from "react";
-import { criarUsuario, autenticaUsuario, alterarImagemPerfil, TrocarSenha } from "../services/AuthService";
+import { createContext, useState } from "react";
+import { criarUsuario, autenticaUsuario, deletarUsuario } from "../services/AuthService";
+import { alterarImagemPerfil, TrocarSenha } from "../services/UsuarioService";
 
- const UserContext = createContext( {
+const UserContext = createContext({
     userId: null,
     logado: false,
     fotoPerfil: null,
@@ -9,30 +10,30 @@ import { criarUsuario, autenticaUsuario, alterarImagemPerfil, TrocarSenha } from
     handleLogout: () => { },
 })
 
-export const UserContextProvider = ({children}) => {
-    const [currentUser, setCurrentUser] = useState({ userId: null, email:null, nome: null, dataNascimento: null, logado: true })
+export const UserContextProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState({ userId: null, email: null, nome: null, dataNascimento: null, logado: true })
     const [fotoPerfil, setFotoPerfil] = useState(null);
-    
-    const handleLogin = async (email,senha) => {
+
+    const handleLogin = async (email, senha) => {
         const data = {
             email,
             senha
         }
         const auth = await autenticaUsuario(data);
-        
-        if(auth && auth.id) {
-         setCurrentUser({ userId: auth.id, email: auth.email, nome: auth.nome, dataNascimento: auth.dataNascimento, logado: true })
-         setFotoPerfil(auth.fotoPerfil)
+
+        if (auth && auth.id) {
+            setCurrentUser({ userId: auth.id, email: auth.email, nome: auth.nome, dataNascimento: auth.dataNascimento, logado: true })
+            setFotoPerfil(auth.fotoPerfil)
         } else {
             console.log("Erro na autenticação");
         }
     }
 
     const handleLogout = () => {
-        setCurrentUser({ userId: null, email:null, nome: null, dataNascimento: null, logado: false })
+        setCurrentUser({ userId: null, email: null, nome: null, dataNascimento: null, logado: false })
         setFotoPerfil(null)
     }
-    const handleCadastrar = (nome,email,dataNascimento,senha) => {
+    const handleCadastrar = (nome, email, dataNascimento, senha) => {
         const data = {
             nome,
             email,
@@ -50,7 +51,12 @@ export const UserContextProvider = ({children}) => {
         setFotoPerfil(imagem)
         alterarImagemPerfil(data)
     }
-
+    const handleDeletarUsuario = async (id) => {
+        const response = await deletarUsuario(id);
+        if (response) {
+            handleLogout();
+        }
+    }
     const handleTrocarSenha = async (senhaAtual, novaSenha) => {
         const data = {
             id: currentUser.userId,
@@ -58,13 +64,13 @@ export const UserContextProvider = ({children}) => {
             novaSenha
         }
         const response = await TrocarSenha(data)
-        if(response) {
+        if (response) {
             handleLogout()
         } else {
             console.error("Senha inválida")
         }
     }
-    
+
     const contexto = {
         usuario: currentUser,
         foto: fotoPerfil,
@@ -75,9 +81,10 @@ export const UserContextProvider = ({children}) => {
         handleCadastrar,
         handleAlterarFoto,
         handleTrocarSenha,
+        handleDeletarUsuario,
     }
 
-    return(
+    return (
         <UserContext.Provider value={contexto}>
             {children}
         </UserContext.Provider>

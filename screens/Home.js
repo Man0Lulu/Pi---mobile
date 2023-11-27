@@ -1,18 +1,18 @@
+
 import { FlatList, View, StyleSheet, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
 import { useContext, useEffect, useState } from 'react';
 
 import moment from 'moment';
 
-import BotaoAdd from '../svg/BotaoAdd';
 import { ContainerBotao, LinhaHorizontalHomeDireita } from '../styles/HomeStyles';
 import { LinhaHorizontalHomeEsquerda } from '../styles/HomeStyles';
 import { ContainerTelas, LinhaHorizontal } from '../styles/StylesGlobal';
+
 import Habitos from '../components/Habitos';
+import BotaoAdd from '../svg/BotaoAdd';
+
 import HabitoContext from '../contexts/HabitoContext';
 import UserContext from '../contexts/UserContext';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
-
 
 const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Quar', 'Quin', 'Sex', 'Sáb'];
 
@@ -56,6 +56,7 @@ const Home = ({ navigation }) => {
             </View>
           )} />
       </View>
+
       <View style={styles.container2}>
         <FlatList
           showsHorizontalScrollIndicator={false}
@@ -122,7 +123,6 @@ const styles = StyleSheet.create({
     paddingRight: 13,
     paddingTop: 10,
     paddingBottom: 10,
-
   },
   dayText: {
     fontSize: 14,

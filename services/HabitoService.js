@@ -1,11 +1,10 @@
 import axios from "axios";
 
-
-export async function listarHabitos(id){
+export async function listarHabitos(id) {
     try {
         const response = await axios.get(`http://3.90.51.196:8080/habitos/user/${id}`);
-        return {habitos: response.data};
-    } catch(error) {
+        return { habitos: response.data };
+    } catch (error) {
         console.log('Erro na requisição de listar habitos', error);
     }
 }

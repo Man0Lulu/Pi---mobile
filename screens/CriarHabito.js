@@ -1,5 +1,19 @@
-import { ContainerTelas, LinhaHorizontal } from '../styles/StylesGlobal';
-import { TextTitulo, TextTocarHabito, ContainerHabito, TextInputHabito, ContainerBotao, ContainerAlarme, TextImagemHabito, ContainerDefaultHabitoImage,ContainerPosicaoDefaultImagem } from '../styles/CriarHabitoStyles';
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { Text } from 'react-native'; // Importe o componente Text do React Native
+import {
+    ContainerTelas,
+    LinhaHorizontal,
+    TextTitulo,
+    TextTocarHabito,
+    ContainerHabito,
+    TextInputHabito,
+    ContainerBotao,
+    ContainerAlarme,
+    TextImagemHabito,
+    ContainerDefaultHabitoImage,
+    ContainerPosicaoDefaultImagem,
+} from '../styles/CriarHabitoStyles';
 import { Image } from 'react-native';
 import { useContext, useState } from 'react';
 import Botao from '../components/Botao';
@@ -21,17 +35,10 @@ const CriarHabito = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const navigation = useNavigation();
     const { usuario } = useContext(UserContext);
+    const { control, handleSubmit, setError, formState: { errors } } = useForm();
 
     const handleSwitchChange = (novoValor) => {
         setTocarAlarme(novoValor);
-    };
-
-    const handleCriarHabitoBotao = async () => {
-        await handleCriarHabito(usuario.userId, habito, tocarAlarme, horarioalarme, datahabito, selectedImage);
-        navigation.reset({
-            index: 0,
-            routes: [{ name: 'Home' }],
-          });
     };
     const handleImagePicker = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -45,6 +52,14 @@ const CriarHabito = () => {
         }
     }
 
+    const onSubmit = async (data) => {
+        await handleCriarHabito(usuario.userId, data.habito, data.tocarAlarme, data.horarioalarme, data.datahabito, selectedImage);
+        navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }],
+        });
+    };
+
     return (
         <ContainerTelas>
             <KeyboardAwareScrollView
@@ -57,14 +72,14 @@ const CriarHabito = () => {
                 <TextTitulo>Novo Hábito</TextTitulo>
                 <TextImagemHabito>Imagem do Hábito</TextImagemHabito>
                 <TouchableOpacity onPress={() => handleImagePicker()}>
-                    {selectedImage ? ( 
-                        <Image style={{ marginLeft: 30, marginTop: 8, width: 120, height: 120, borderRadius: 20, overflow: 'hidden'}} source={{ uri: 'data:image/jpeg;base64,' + selectedImage }} />
+                    {selectedImage ? (
+                        <Image style={{ marginLeft: 30, marginTop: 8, width: 120, height: 120, borderRadius: 20, overflow: 'hidden' }} source={{ uri: 'data:image/jpeg;base64,' + selectedImage }} />
                     ) : (
                         <>
-                        <ContainerPosicaoDefaultImagem>
-                        <Image style={{ width: 40, height: 40, tintColor: '#B52178' }} source={require('../assets/habito-default.png')} />
-                        </ContainerPosicaoDefaultImagem>
-                        <ContainerDefaultHabitoImage />
+                            <ContainerPosicaoDefaultImagem>
+                                <Image style={{ width: 40, height: 40, tintColor: '#B52178' }} source={require('../assets/habito-default.png')} />
+                            </ContainerPosicaoDefaultImagem>
+                            <ContainerDefaultHabitoImage />
                         </>
                     )}
                 </TouchableOpacity>
@@ -74,36 +89,74 @@ const CriarHabito = () => {
                 </ContainerAlarme>
                 <ContainerHabito>
                     <TextImagemHabito>Nome do Hábito</TextImagemHabito>
-                    <TextInputHabito
-                        label={'Nome do Hábito'}
-                        value={habito}
-                        onChangeText={(text) => setNomeHabito(text)}
-                        placeholder='Nome do hábito'
-                        placeholderTextColor="#808080"
+                    <Controller
+                        control={control}
+                        render={({ field }) => (
+                            <TextInputHabito
+                                label={'Nome do Hábito'}
+                                value={field.value}
+                                onChangeText={(text) => {
+                                    setNomeHabito(text);
+                                    field.onChange(text);
+                                }}
+                                placeholder='Nome do hábito'
+                                placeholderTextColor="#808080"
+                            />
+                        )}
+                        name="habito"
+                        rules={{ required: 'Nome do hábito é obrigatório' }}
+                        defaultValue={habito}
                     />
+                    {errors.habito && <Text style={{ color: 'red' }}>{errors.habito.message}</Text>}
+
                     <TextImagemHabito>Horário do Alarme</TextImagemHabito>
-                    <TextInputHabito
-                        label={'Horário do Alarme'}
-                        value={horarioalarme}
-                        onChangeText={(text) => setHorarioAlarme(text)}
-                        placeholder='Horário do alarme ex: 12:00'
-                        placeholderTextColor="#808080"
+                    <Controller
+                        control={control}
+                        render={({ field }) => (
+                            <TextInputHabito
+                                label={'Horário do Alarme'}
+                                value={field.value}
+                                onChangeText={(text) => {
+                                    setHorarioAlarme(text);
+                                    field.onChange(text);
+                                }}
+                                placeholder='Horário do alarme ex: 12:00'
+                                placeholderTextColor="#808080"
+                            />
+                        )}
+                        name="horarioalarme"
+                        rules={{ required: 'Horário do alarme é obrigatório' }}
+                        defaultValue={horarioalarme}
                     />
+                    {errors.horarioalarme && <Text style={{ color: 'red' }}>{errors.horarioalarme.message}</Text>}
+
                     <TextImagemHabito>Data do Hábito</TextImagemHabito>
-                    <TextInputHabito
-                        label={'Data do Hábito'}
-                        value={datahabito}
-                        onChangeText={(text) => setDataHabito(text)}
-                        placeholder='Selecione a data do hábito'
-                        placeholderTextColor="#808080"
+                    <Controller
+                        control={control}
+                        render={({ field }) => (
+                            <TextInputHabito
+                                label={'Data do Hábito'}
+                                value={field.value}
+                                onChangeText={(text) => {
+                                    setDataHabito(text);
+                                    field.onChange(text);
+                                }}
+                                placeholder='Selecione a data do hábito'
+                                placeholderTextColor="#808080"
+                            />
+                        )}
+                        name="datahabito"
+                        rules={{ required: 'Data do hábito é obrigatória' }}
+                        defaultValue={datahabito}
                     />
+                    {errors.datahabito && <Text style={{ color: 'red' }}>{errors.datahabito.message}</Text>}
                 </ContainerHabito>
                 <ContainerBotao>
-                    <Botao onPress={handleCriarHabitoBotao} texto={"Criar"} />
+                    <Botao onPress={handleSubmit(onSubmit)} texto={"Criar"} />
                 </ContainerBotao>
             </KeyboardAwareScrollView>
         </ContainerTelas>
     );
-}
+};
 
 export default CriarHabito;
