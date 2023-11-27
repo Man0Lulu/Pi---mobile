@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 import { criarUsuario, autenticaUsuario, deletarUsuario } from "../services/AuthService";
 import { alterarImagemPerfil, TrocarSenha } from "../services/UsuarioService";
 
- const UserContext = createContext( {
+const UserContext = createContext({
     userId: null,
     logado: false,
     fotoPerfil: null,
@@ -33,7 +33,7 @@ export const UserContextProvider = ({children}) => {
         setCurrentUser({ userId: null, email:null, nome: null, dataNascimento: null, logado: false })
         setFotoPerfil(null)
     }
-    const handleCadastrar = (nome,email,dataNascimento,senha) => {
+    const handleCadastrar = (nome, email, dataNascimento, senha) => {
         const data = {
             nome,
             email,
@@ -58,7 +58,6 @@ export const UserContextProvider = ({children}) => {
             handleLogout();
         }
     }
-
     const handleTrocarSenha = async (senhaAtual, novaSenha) => {
         const data = {
             id: currentUser.userId,
@@ -86,7 +85,7 @@ export const UserContextProvider = ({children}) => {
         handleDeletarUsuario,
     }
 
-    return(
+    return (
         <UserContext.Provider value={contexto}>
             {children}
         </UserContext.Provider>

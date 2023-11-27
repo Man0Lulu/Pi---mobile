@@ -8,6 +8,8 @@ import { ContainerBotao, LinhaHorizontalHomeDireita } from '../styles/HomeStyles
 import { LinhaHorizontalHomeEsquerda } from '../styles/HomeStyles';
 import { ContainerTelas, LinhaHorizontal } from '../styles/StylesGlobal';
 
+import Habitos from '../components/Habitos';
+import BotaoAdd from '../svg/BotaoAdd';
 
 
 
