@@ -4,7 +4,7 @@ import { Image, TouchableOpacity, Text } from 'react-native';
 
 import { LinhaHorizontal, ContainerTelas } from '../styles/StylesGlobal';
 
-import { TextInputPerfil, ContainerPerfil, ContainerInput, ContainerBotao, TextEmail, TextTrocarSenha, TextTitulo } from '../styles/PerfilStyles';
+import { TextEmailUsuario, TextInputPerfil, ContainerPerfil, ContainerInput, ContainerBotao, TextEmail, TextTrocarSenha, TextTitulo } from '../styles/PerfilStyles';
 import { ContainerDefaultHabitoImage,ContainerPosicaoDefaultImagem } from '../styles/CriarHabitoStyles';
 
 import Botao from '../components/Botao';
@@ -14,7 +14,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import UserContext from '../contexts/UserContext';
 
 const Perfil = () => {
-  const { control, handleSubmit, setError, formState: { errors } } = useForm();
+  const { control, handleSubmit, formState: { errors } } = useForm();
   const { usuario, handleAlterarFoto, foto, handleTrocarSenha, handleDeletarUsuario } = useContext(UserContext);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -70,7 +70,7 @@ const Perfil = () => {
         </ContainerPerfil>
         <Text></Text>
         <ContainerPerfil>
-          <TextEmail>{usuario.email}</TextEmail>
+          <TextEmailUsuario>{usuario.email}</TextEmailUsuario>
         </ContainerPerfil>
 
         <ContainerPerfil>

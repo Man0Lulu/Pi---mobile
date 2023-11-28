@@ -5,7 +5,7 @@ import {
   TextInputCadastro, ContainerInput, ContainerBotao, Logo, TextJaTemConta,
   TextAcessar, ContainerCadastro, ContainerIcone, TextTitleCadastro
 } from '../styles/CadastroStyles';
-import { ContainerApp } from '../styles/StylesGlobal';
+import { ContainerTelas } from '../styles/StylesGlobal';
 import { Image } from 'react-native';
 import Botao from '../components/Botao';
 import UserContext from '../contexts/UserContext';
@@ -22,7 +22,7 @@ const Cadastro = () => {
   };
 
   return (
-    <ContainerApp>
+    <ContainerTelas>
       <KeyboardAwareScrollView
         resetScrollToCoords={{ x: 0, y: 0 }}
         scrollEnabled={true}
@@ -138,7 +138,7 @@ const Cadastro = () => {
         </ContainerBotao>
         <TextJaTemConta>Já tem uma conta? <TextAcessar onPress={() => navigation.navigate('Login')}>Acessar</TextAcessar></TextJaTemConta>
       </KeyboardAwareScrollView>
-    </ContainerApp>
+    </ContainerTelas>
   );
 };
 

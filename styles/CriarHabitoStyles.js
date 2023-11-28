@@ -1,6 +1,6 @@
 import styled from "styled-components/native"
 
-export const ContainerCriarHabito = styled.View `
+export const ContainerCriarHabito = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
@@ -42,17 +42,15 @@ export const ContainerHabito = styled.View`
 
 export const TextInputHabito = styled.TextInput` 
     height: 51px;
-    margin: 1px 30px 1px;
-    padding: 0px 0px 0px 30px;
+    margin: 3px 16px 6px;
+    padding: 0px 0px 0px 20px;
     background-color: #FFFF;
     border-radius: 20px;
-    align-self: stretch;   
-    font-family: Inter-Medium;
-    font-size: 16px;
+    align-self: stretch
 
 `;
 
-export const ContainerPosicaoDefaultImagem = styled.View `
+export const ContainerPosicaoDefaultImagem = styled.View`
     position: absolute;
     margin-left: 70px;
     padding-top: 38px;
@@ -69,9 +67,10 @@ export const ContainerDefaultHabitoImage = styled.View`
 `;
 
 export const ContainerBotao = styled.View`
+    margin-top: 36px;
     margin-bottom: 50px;
     align-Items: center;
-    margin: 25px 14px 20px;
+    
 `;
 
 export const ContainerAlarme = styled.View`

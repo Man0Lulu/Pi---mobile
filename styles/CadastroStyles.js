@@ -15,24 +15,26 @@ export const TextTitleCadastro = styled.Text `
 `;
 
 export const ContainerCadastro = styled.View `
-    flex-direction: row;
-    align-Items: center;
+    flex-direction: columm;
+    align-Items: left;
     position: relative;
 `;
 
 export const TextInputCadastro = styled.TextInput`
-    width: 322px;
     height: 51px;
-    margin: 3px 14px 18px;
-    padding: 0px 0px 0px 50px;
+    margin: 3px 16px 18px;
+    padding: 0px 0px 0px 40px;
     background-color: #FFFF;
     border-radius: 20px;
+    align-self: stretch;
 `;
 
 export const ContainerIcone = styled.View `
     position: absolute;
-    margin-bottom: 4%;
-    padding-left: 100%;
+    left: 22px;
+    top: 20%;
+    align-items: flex-start;
+    justify-content: center;
     z-index: 1;
 `;
 
