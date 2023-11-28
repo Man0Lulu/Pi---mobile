@@ -1,13 +1,12 @@
 import styled from "styled-components/native";
 
 export const TextInputPerfil = styled.TextInput`
-    width: 322px;
     height: 51px;
-    margin: 3px 14px 18px;
+    margin: 3px 16px 18px;
     padding: 0px 0px 0px 50px;
     background-color: #FFFF;
     border-radius: 20px;
-    align-self: center
+    align-self: stretch;
 `;
 
 export const ContainerPerfil = styled.View`
@@ -33,7 +32,16 @@ export const TextEmail = styled.Text`
     color: #B52178;
     font-size: 20px;
     font-family: Inter-SemiBold;
-    margin-left: 15px;
+    margin-left: 16px;
+    margin-top: 40px;
+    margin-bottom: -55px;
+`;
+
+export const TextEmailUsuario = styled.Text`
+    color: #000;
+    font-size: 20px;
+    font-family: Inter-SemiBold;
+    margin-left: 16px;
     margin-top: 40px;
     margin-bottom: -55px;
 `;
@@ -42,7 +50,7 @@ export const TextTrocarSenha = styled.Text`
     color: #B52178;
     font-size: 20px;
     font-family: Inter-SemiBold;
-    margin-left: 15px;
+    margin-left: 16px;
     margin-top: 80px
 `;
 

@@ -8,7 +8,7 @@ export const Logo = styled.View `
 
 export const ContainerInput = styled.View `
     margin-top: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 `;
 
 export const ContainerBotao = styled.View `
@@ -17,7 +17,7 @@ export const ContainerBotao = styled.View `
 `;
 
 export const ContainerCadastrar = styled.View `
-    margin-bottom: -10px;
+    margin-bottom: 20px;
 `;
 
 export const TextTitleLogin = styled.Text `
@@ -30,12 +30,12 @@ export const TextTitleLogin = styled.Text `
 `;
 
 export const TextInputLogin = styled.TextInput`
-    width: 322px;
     height: 51px;
-    margin: 3px 14px 18px;
-    padding: 0 20px;
+    margin: 3px 16px 18px;
+    padding: 0px 0px 0px 20px;
     background-color: #FFFF;
     border-radius: 20px;
+    align-self: stretch
 `;
 
 export const TextAindaNaoPossui = styled.Text`

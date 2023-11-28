@@ -40,4 +40,5 @@ export const Paragrafo = styled.Text `
 
 export const ContainerBotao = styled.View `
     padding-top: 40px;
+    align-self: stretch;
 `;
