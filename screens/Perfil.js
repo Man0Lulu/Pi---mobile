@@ -1,24 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { useForm, Controller } from 'react-hook-form';
+import { Image, TouchableOpacity, Text } from 'react-native';
 
-import {
-  LinhaHorizontal,
-  ContainerTelas,
-  TextTitulo,
-  TouchableOpacity,
-  Image,
-} from '../styles/StylesGlobal';
+import { LinhaHorizontal, ContainerTelas } from '../styles/StylesGlobal';
 
-import {
-  TextInputPerfil,
-  ContainerPerfil,
-  ContainerInput,
-  ContainerBotao,
-  TextEmail,
-  TextTrocarSenha,
-  ContainerDefaultHabitoImage,
-  ContainerPosicaoDefaultImagem,
-} from '../styles/PerfilStyles';
+import { TextInputPerfil, ContainerPerfil, ContainerInput, ContainerBotao, TextEmail, TextTrocarSenha, TextTitulo } from '../styles/PerfilStyles';
+import { ContainerDefaultHabitoImage,ContainerPosicaoDefaultImagem } from '../styles/CriarHabitoStyles';
 
 import Botao from '../components/Botao';
 
@@ -81,6 +68,7 @@ const Perfil = () => {
         <ContainerPerfil>
           <TextEmail>E-mail</TextEmail>
         </ContainerPerfil>
+        <Text></Text>
         <ContainerPerfil>
           <TextEmail>{usuario.email}</TextEmail>
         </ContainerPerfil>

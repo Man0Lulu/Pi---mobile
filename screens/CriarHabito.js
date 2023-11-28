@@ -1,20 +1,8 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Text } from 'react-native'; // Importe o componente Text do React Native
-import {
-    ContainerTelas,
-    LinhaHorizontal,
-    TextTitulo,
-    TextTocarHabito,
-    ContainerHabito,
-    TextInputHabito,
-    ContainerBotao,
-    ContainerAlarme,
-    TextImagemHabito,
-    ContainerDefaultHabitoImage,
-    ContainerPosicaoDefaultImagem,
-} from '../styles/CriarHabitoStyles';
-import { Image } from 'react-native';
+import { Text, Image } from 'react-native';
+import { ContainerTelas, LinhaHorizontal } from '../styles/StylesGlobal';
+import { TextTitulo, TextTocarHabito, ContainerHabito, TextInputHabito, ContainerBotao, ContainerAlarme, TextImagemHabito, ContainerDefaultHabitoImage, ContainerPosicaoDefaultImagem } from '../styles/CriarHabitoStyles';
 import { useContext, useState } from 'react';
 import Botao from '../components/Botao';
 import BotaoAlarme from '../components/Switch';
