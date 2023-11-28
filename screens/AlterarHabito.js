@@ -12,7 +12,7 @@ import {
   ContainerDefaultHabitoImage,
   ContainerPosicaoDefaultImagem,
 } from '../styles/CriarHabitoStyles';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import { useContext, useState } from 'react';
 import Botao from '../components/Botao';
 import BotaoAlarme from '../components/Switch';

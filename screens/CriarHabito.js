@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Text } from 'react-native'; // Importe o componente Text do React Native
 import {
   ContainerTelas,
   LinhaHorizontal,
@@ -14,13 +13,13 @@ import {
   ContainerDefaultHabitoImage,
   ContainerPosicaoDefaultImagem,
 } from '../styles/CriarHabitoStyles';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import { useContext, useState } from 'react';
 import Botao from '../components/Botao';
 import BotaoAlarme from '../components/Switch';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import HabitoContext from '../contexts/HabitoContext';
-import { Pressable } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
 
 const CriarHabito = () => {
@@ -68,7 +67,7 @@ const CriarHabito = () => {
         <LinhaHorizontal />
         <TextTitulo>Novo Hábito</TextTitulo>
         <TextImagemHabito>Imagem do Hábito</TextImagemHabito>
-        <Pressable onPress={() => handleImagePicker()}>
+        <TouchableOpacity onPress={() => handleImagePicker()}>
           {selectedImage ? (
             <Image style={{ marginLeft: 30, marginTop: 8, width: 120, height: 120, borderRadius: 20, overflow: 'hidden' }} source={{ uri: 'data:image/jpeg;base64,' + selectedImage }} />
           ) : (
@@ -79,7 +78,7 @@ const CriarHabito = () => {
               <ContainerDefaultHabitoImage />
             </>
           )}
-        </Pressable>
+        </TouchableOpacity>
         <ContainerAlarme>
           <TextTocarHabito>Tocar Alarme?</TextTocarHabito>
           <BotaoAlarme value={tocarAlarme} onValueChange={handleSwitchChange} />

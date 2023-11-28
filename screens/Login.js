@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { TextInputLogin, TextTitleLogin, ContainerInput, ContainerBotao, ContainerCadastrar, Logo, TextCadastrar, TextAindaNaoPossui } from '../styles/LoginStyles';
 import { ContainerApp } from '../styles/StylesGlobal';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import Botao from '../components/Botao';
 import UserContext from '../contexts/UserContext';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
