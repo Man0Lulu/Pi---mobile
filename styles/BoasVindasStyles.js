@@ -9,7 +9,9 @@ export const ContainerTexto = styled.View `
 export const ImagemBoasVindas = styled.Image`
     width: 178px;
     height: 220px;
-    margin-bottom: -60px;
+    align-self: center;
+    margin-top: 50px;
+    margin-bottom: -50px;
 `;
 
 export const Titulo = styled.Text `
@@ -41,4 +43,8 @@ export const Paragrafo = styled.Text `
 export const ContainerBotao = styled.View `
     padding-top: 40px;
     align-self: stretch;
+`;
+
+export const ContainerBoasVindas = styled.View `
+    margin-top: 25%;
 `;
