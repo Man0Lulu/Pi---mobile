@@ -23,7 +23,7 @@ import * as ImagePicker from 'expo-image-picker';
 import SearchBar from '../components/SearchBar';
 
 const AlterarHabito = () => {
-  const { control, handleSubmit, setError, formState: { errors } } = useForm();
+  const { control, formState: { errors } } = useForm();
   const [habito, setNomeHabito] = useState('');
   const [horarioalarme, setHorarioAlarme] = useState('');
   const [datahabito, setDataHabito] = useState('');
