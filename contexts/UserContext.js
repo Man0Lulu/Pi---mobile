@@ -11,7 +11,7 @@ const UserContext = createContext({
 })
 
 export const UserContextProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState({ userId: null, email: null, nome: null, dataNascimento: null, logado: true })
+    const [currentUser, setCurrentUser] = useState({ userId: null, email: null, nome: null, dataNascimento: null, logado: false })
     const [fotoPerfil, setFotoPerfil] = useState(null);
 
     const handleLogin = async (email, senha) => {
