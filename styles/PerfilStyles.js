@@ -32,16 +32,16 @@ export const TextEmail = styled.Text`
     color: #B52178;
     font-size: 20px;
     font-family: Inter-SemiBold;
-    margin-left: 16px;
+    margin-left: 32px;
     margin-top: 40px;
-    margin-bottom: -55px;
+    margin-bottom: -50px;
 `;
 
 export const TextEmailUsuario = styled.Text`
     color: #000;
     font-size: 20px;
-    font-family: Inter-SemiBold;
-    margin-left: 16px;
+    font-family: Inter-Medium;
+    margin-left: 42px;
     margin-top: 40px;
     margin-bottom: -55px;
 `;
@@ -50,8 +50,9 @@ export const TextTrocarSenha = styled.Text`
     color: #B52178;
     font-size: 20px;
     font-family: Inter-SemiBold;
-    margin-left: 16px;
-    margin-top: 80px
+    margin-left: 32px;
+    margin-top: 70px;
+    margin-bottom: -25px;
 `;
 
 export const TextTitulo = styled.Text`

@@ -39,7 +39,7 @@ const Home = ({ navigation }) => {
     if (usuario?.userId) {
       handleListarHabitos(usuario.userId);
     }
-  }, [usuario])
+  }, [usuario, habitos])
 
   return (
     <ContainerTelas>

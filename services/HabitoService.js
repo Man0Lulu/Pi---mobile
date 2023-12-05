@@ -16,3 +16,11 @@ export async function criarHabito(dados) {
         console.error('Erro na requisição de criar habito', error);
     }
 }
+
+export async function deletarHabito(id) {
+    try {
+        await axios.delete(`http://3.90.51.196:8080/habitos/${id}`);
+    } catch (error) {
+        console.error('Erro na requisição de criar habito', error);
+    }
+}

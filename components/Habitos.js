@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
+import HabitoContext from "../contexts/HabitoContext";
 
 const Habitos = ({ item }) => {
     const horaFormatada = item.horarioAlarme ? item.horarioAlarme.substring(0, 5) : '';
+
+    const { handleDeletarHabito } = useContext(HabitoContext);
 
     return (
         <View style={styles.container}>
@@ -17,7 +22,9 @@ const Habitos = ({ item }) => {
                     <View style={styles.horaContainer}>
                         <Text style={styles.hora}>{horaFormatada}</Text>
                     </View>
-                    <Text style={{textAlign:'left', paddingLeft: 10}}>Alarme</Text>
+                    <TouchableOpacity onPress={() => handleDeletarHabito(item.id)}>
+                    <Text style={{textAlign:'left', paddingLeft: 10, fontSize: 15, textDecorationLine: 'underline', color: 'red'}}>Remover</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>

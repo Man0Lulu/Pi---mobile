@@ -1,10 +1,11 @@
 import { createContext, useState } from "react";
-import { criarHabito, listarHabitos } from "../services/HabitoService";
+import { criarHabito, listarHabitos, deletarHabito } from "../services/HabitoService";
 
 const HabitoContext = createContext({
     handleCriarHabito: () => { },
     handleAlterarHabito: () => { },
     handleListarHabitos: () => { },
+    handleDeletarHabito: () => { },
 })
 
 export const HabitoContextProvider = ({ children }) => {
@@ -30,14 +31,20 @@ export const HabitoContextProvider = ({ children }) => {
         response = await criarHabito(dados)
     }
 
+    const handleDeletarHabito = async (id) => {
+        await deletarHabito(id);
+        setHabitos(habitos.filter((habito) => habito.id !== id));
+    }
+
     const handleAlterarHabito = (habitoId, nome, alarme, horario, data, selectedImage) => {
-    };
+    }
 
     const contexto = {
         handleCriarHabito,
         habitos,
         handleListarHabitos,
         handleAlterarHabito,
+        handleDeletarHabito
     }
 
     return (

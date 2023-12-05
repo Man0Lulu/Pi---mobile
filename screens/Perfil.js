@@ -4,8 +4,8 @@ import { Image, TouchableOpacity, Text } from 'react-native';
 
 import { LinhaHorizontal, ContainerTelas } from '../styles/StylesGlobal';
 
-import { TextEmailUsuario, TextInputPerfil, ContainerPerfil, ContainerInput, ContainerBotao, TextEmail, TextTrocarSenha, TextTitulo } from '../styles/PerfilStyles';
-import { ContainerDefaultHabitoImage,ContainerPosicaoDefaultImagem } from '../styles/CriarHabitoStyles';
+import { TextEmailUsuario, TextInputPerfil, ContainerPerfil, ContainerInput, ContainerBotao, TextEmail, TextTrocarSenha, TextTitulo, TextDeseja, TextDeletar, ContainerDeletar } from '../styles/PerfilStyles';
+import { ContainerDefaultHabitoImage, ContainerPosicaoDefaultImagem } from '../styles/CriarHabitoStyles';
 
 import Botao from '../components/Botao';
 
@@ -13,10 +13,14 @@ import * as ImagePicker from 'expo-image-picker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import UserContext from '../contexts/UserContext';
 
+import Modal from 'react-native-modal';
+import Aviso from "../components/Aviso";
+
 const Perfil = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
   const { usuario, handleAlterarFoto, foto, handleTrocarSenha, handleDeletarUsuario } = useContext(UserContext);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalVisible, setModalVisible] = useState(false);
 
   const handleImagePicker = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -40,6 +44,13 @@ const Perfil = () => {
       setSelectedImage(foto);
     }
   }, [foto]);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+  const handleDeletar = () => {
+    handleDeletarUsuario(usuario.userId);
+  }
 
 
   return (
@@ -120,6 +131,14 @@ const Perfil = () => {
         <ContainerBotao>
           <Botao texto={'Salvar'} onPress={handleSubmit(onSubmit)} />
         </ContainerBotao>
+
+        <ContainerDeletar>
+          <TextDeseja>Deseja deletar sua conta? <TextDeletar onPress={toggleModal}>Deletar</TextDeletar></TextDeseja>
+        </ContainerDeletar>
+
+        <Modal isVisible={isModalVisible}>
+          <Aviso texto={"a conta"} toggleModal={toggleModal} funcionalidade={handleDeletar} />
+        </Modal>
       </KeyboardAwareScrollView>
     </ContainerTelas>
   );
